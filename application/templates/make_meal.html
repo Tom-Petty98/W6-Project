@@ -1,0 +1,69 @@
+{% extends "layout.html" %}
+{% block body_content %}
+    <div class='form'>
+        <form method='POST' action=''>
+            {{ form.hidden_tag() }}
+            {{ form.meal_name.label }}
+            {{ form.meal_name }}
+	        {% if form.meal_name.errors %}
+            <div class="error">
+                {% for error in form.meal_name.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+            {% endif %}
+            <br>
+            {{ form.healthy.label }}
+            {{ form.healthy }}
+	        {% if form.healthy.errors %}
+            <div class="error">
+                {% for error in form.healthy.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+            {% endif %}
+            <br>
+            {{ form.cook_length.label }}
+            {{ form.cook_length }}
+	        {% if form.cook_length.errors %}
+            <div class="error">
+                {% for error in form.cook_length.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+            {% endif %}
+            <br>
+            {{ form.difficulty.label }}
+            {{ form.difficulty }}
+	        {% if form.difficulty.errors %}
+            <div class="error">
+                {% for error in form.difficulty.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+            {% endif %}
+            <br>
+            {{ form.recipe.label }}
+            {{ form.recipe }}
+	        {% if form.recipe.errors %}
+            <div class="error">
+                {% for error in form.recipe.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+            {% endif %}
+            <br>
+            {{ form.vegan.label }}
+            {{ form.vegan }}
+	        {% if form.vegan.errors %}
+            <div class="error">
+                {% for error in form.vegan.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+            {% endif %}
+            <br>
+            {{ form.submit }}
+        </form>
+    </div>
+{% endblock %}

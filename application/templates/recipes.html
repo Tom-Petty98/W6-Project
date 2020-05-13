@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+{% block body_content %}
+
+{% for meal in meals %}
+    <div>
+        <h3>{{ meal.meal_name }}</h3>
+        <p><b> - Health Rating:</b>{{ meal.healthy }}</p>
+		<p><b> - Cooking Time:</b>{{ meal.cook_length }}</p>
+		<p><b> - Difficulty:</b>{{ meal.difficulty }}</p>
+		<p><b> - Is Vegan:</b>{{ meal.vegan }}</p>
+        <p> -- {{ meal.recipe }}</p>
+    </div>
+{% endfor %}
+
+{% endblock %}
