@@ -55,13 +55,6 @@
             <br>
             {{ form.vegan.label }}
             {{ form.vegan }}
-	        {% if form.vegan.errors %}
-            <div class="error">
-                {% for error in form.vegan.errors %}
-                    <span>{{ error }}</span>
-                {% endfor %}
-            </div>
-            {% endif %}
             <br>
             {{ form.submit }}
         </form>

@@ -15,7 +15,6 @@ def recipes():
 
 
 @app.route('/make_meal', methods=['GET', 'POST'])
-@login_required
 def make_meal():
     form = MealsForm()
     if form.validate_on_submit():
@@ -31,7 +30,7 @@ def make_meal():
         db.session.add(mealData)
         db.session.commit()
 
-        return redirect(url_for('home'))
+        return redirect(url_for('recipes'))
 
     else:
         print(form.errors)

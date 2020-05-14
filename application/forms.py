@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField
+from wtforms import StringField, SubmitField, BooleanField
 from wtforms.validators import DataRequired, Length
 
 class MealsForm(FlaskForm):
@@ -25,15 +25,12 @@ class MealsForm(FlaskForm):
             Length(min=2, max=15)
         ]
     )
-    vegan = StringField('Suitable for vegans',
-        validators = [
-            DataRequired()
-        ]
-    )
     recipe = StringField('Recipe',
         validators = [
             DataRequired(),
             Length(min=2, max=1000)
         ]
     )
-    submit = SubmitField('Post!')
+
+    vegan = BooleanField('Suitable For Vegans')
+    submit = SubmitField('Post Meal!')
