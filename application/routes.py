@@ -16,18 +16,19 @@ def recipes():
 
 @app.route('/make_meal', methods=['GET', 'POST'])
 def make_meal():
-    form = MealsForm()
-    if form.validate_on_submit():
+    meal_form = MealsForm()
+    if form.validate_on_submit() and meal_form.submit_meal.data:
         mealData = Meals(
-            meal_name = form.meal_name.data,
-            healthy = form.healthy.data,
-            cook_length = form.cook_length.data,
-            difficulty = form.difficulty.data,
-            vegan = form.vegan.data,
-            recipe = form.recipe.data
+            meal_name = meal_form.meal_name.data,
+            healthy = meal_form.healthy.data,
+            cook_length = meal_form.cook_length.data,
+            difficulty = meal_form.difficulty.data,
+            vegan = meal_form.vegan.data,
+            recipe = meal_form.recipe.data
         )
 
         db.session.add(mealData)
+        # mealData.ingredients.append(...)  not sure how im going to capture ingredients yet but could be outputted with a for loop.
         db.session.commit()
 
         return redirect(url_for('recipes'))
@@ -35,4 +36,4 @@ def make_meal():
     else:
         print(form.errors)
 
-    return render_template('make_meal.html', title='Create your own meal', form=form)
+    return render_template('make_meal.html', title='Create your own meal', meal_form, ingredient_form)

@@ -33,4 +33,22 @@ class MealsForm(FlaskForm):
     )
 
     vegan = BooleanField('Suitable For Vegans')
-    submit = SubmitField('Post Meal!')
+    submit_meal = SubmitField('Post Meal!')
+
+
+
+class IngredientsForm(FlaskForm):
+    ingredient_name = StringField('Ingredient Name',
+        validators = [
+            DataRequired(),
+            Length(min=2, max=30)
+        ]
+    )
+    shelf_life = StringField('Shelf life',
+        validators = [
+            DataRequired(),
+            Length(min=2, max=15)
+        ]
+    )
+    vegan = BooleanField('Suitable For Vegans')
+    submit_ingredient = SubmitField('Add ingredient!')
