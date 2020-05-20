@@ -2,61 +2,106 @@
 {% block body_content %}
     <div class='form'>
         <form method='POST' action=''>
-            {{ form.hidden_tag() }}
-            {{ form.meal_name.label }}
-            {{ form.meal_name }}
-	        {% if form.meal_name.errors %}
+            {{ meal_form.hidden_tag() }}
+            {{ meal_form.meal_name.label }}
+            {{ meal_form.meal_name }}
+	        {% if meal_form.meal_name.errors %}
             <div class="error">
-                {% for error in form.meal_name.errors %}
+                {% for error in meal_form.meal_name.errors %}
                     <span>{{ error }}</span>
                 {% endfor %}
             </div>
             {% endif %}
-            <br>
-            {{ form.healthy.label }}
-            {{ form.healthy }}
-	        {% if form.healthy.errors %}
+            <br><br>
+            {{ meal_form.healthy.label }}
+            {{ meal_form.healthy }}
+	        {% if meal_form.healthy.errors %}
             <div class="error">
-                {% for error in form.healthy.errors %}
+                {% for error in meal_form.healthy.errors %}
                     <span>{{ error }}</span>
                 {% endfor %}
             </div>
             {% endif %}
-            <br>
-            {{ form.cook_length.label }}
-            {{ form.cook_length }}
-	        {% if form.cook_length.errors %}
+            <br><br>
+            {{ meal_form.cook_length.label }}
+            {{ meal_form.cook_length }}
+	        {% if meal_form.cook_length.errors %}
             <div class="error">
-                {% for error in form.cook_length.errors %}
+                {% for error in meal_form.cook_length.errors %}
                     <span>{{ error }}</span>
                 {% endfor %}
             </div>
             {% endif %}
-            <br>
-            {{ form.difficulty.label }}
-            {{ form.difficulty }}
-	        {% if form.difficulty.errors %}
+            <br><br>
+            {{ meal_form.difficulty.label }}
+            {{ meal_form.difficulty }}
+	        {% if meal_form.difficulty.errors %}
             <div class="error">
-                {% for error in form.difficulty.errors %}
+                {% for error in meal_form.difficulty.errors %}
                     <span>{{ error }}</span>
                 {% endfor %}
             </div>
             {% endif %}
-            <br>
-            {{ form.description.label }}
-            {{ form.description }}
-	        {% if form.description.errors %}
+            <br><br>
+            {{ meal_form.description.label }}
+            {{ meal_form.description }}
+	        {% if meal_form.description.errors %}
             <div class="error">
-                {% for error in form.description.errors %}
+                {% for error in meal_form.description.errors %}
                     <span>{{ error }}</span>
                 {% endfor %}
             </div>
             {% endif %}
+            <br><br>
+            {{ meal_form.vegan.label }}
+            {{ meal_form.vegan }}
+            <br><br>
+            <h4>{{ meal_form.ingredients.label }}</h4>
+            <p>If the ingredient you wish to add isnt in our database please enter it in the form below first</p>
+            {{ meal_form.ingredients(rows=6, multiple=True) }}
+	        {% if meal_form.ingredients.errors %}
+            <div class="error">
+                {% for error in meal_form.ingredients.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+            {% endif %}
+            <br><br>
+            {{ meal_form.submit_meal }}
+        </form>
+    </div>
+    <br><br><br>
+    <h1>Add your own ingredients</h1>
+    <div class='form'>
+        <form method='POST' action=''>
+            {{ ingredient_form.hidden_tag() }}
+            <div class='form_group'>
+                {{ ingredient_form.ingredient_name.label }}
+                {{ ingredient_form.ingredient_name }}
+                {% if ingredient_form.ingredient_name.errors %}
+                    <div class='error'>
+                        {% for error in ingredient_form.ingredient_name.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
             <br>
-            {{ form.vegan.label }}
-            {{ form.vegan }}
-            <br>
-            {{ form.submit }}
+            {{ ingredient_form.shelf_life.label }}
+                {{ ingredient_form.shelf_life }}
+                {% if ingredient_form.shelf_life.errors %}
+                    <div class='error'>
+                        {% for error in ingredient_form.shelf_life.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            <br><br>
+            {{ ingredient_form.vegan.label }}
+            {{ ingredient_form.vegan }}
+            <div class='form_group'>
+                {{ ingredient_form.submit_ingredient }}
+            </div>
         </form>
     </div>
 {% endblock %}

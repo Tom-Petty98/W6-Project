@@ -1,6 +1,7 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, BooleanField, TextAreaField, SelectField
+from wtforms import StringField, SubmitField, BooleanField, TextAreaField, SelectField, SelectMultipleField
 from wtforms.validators import DataRequired, Length
+from application.models import Ingredients
 
 class MealsForm(FlaskForm):
     meal_name = StringField('Meal Name',
@@ -10,12 +11,13 @@ class MealsForm(FlaskForm):
         ]
     )
     healthy = SelectField("How healthy is the meal?", [DataRequired()],
+                        coerce=int,
                         choices=[
-                            (1, 'Very unhealthy'), 
-                            (2, 'unhealthy'), 
-                            (3, 'neutral'), 
-                            (4, 'healthy'), 
-                            (5, 'very healthy')]
+                            (1, 'Very Unhealthy'), 
+                            (2, 'Unhealthy'), 
+                            (3, 'Neutral'), 
+                            (4, 'Healthy'), 
+                            (5, 'Very Healthy')]
     )
     cook_length = StringField('Cooking time (mins)',
         validators = [
@@ -23,9 +25,12 @@ class MealsForm(FlaskForm):
         ]
     )
     difficulty = SelectField("Diffculty", [DataRequired()],
-                        choices=["easy", "medium", "Hard"]
+                        choices=[("easy", "easy"), ("medium", "medium"), ("hard", "hard")]
     )
-
+    ingredients = SelectMultipleField('Add some Ingredients',
+                                   coerce=int,
+                                   choices=[(i.id, i.ingredient_name) for i in Ingredients.query.all()]
+    )
     description = TextAreaField('Give a brief description of this meal',
         validators = [
             DataRequired(),
@@ -45,7 +50,7 @@ class IngredientsForm(FlaskForm):
         ]
     )
     shelf_life = SelectField("Shelf Life", [DataRequired()],
-                        choices=["short", "medium", "long"]
+                        choices=[("short", "short"), ("medium", "medium"), ("long", "long")]
     )
 
     vegan = BooleanField('Suitable For Vegans')
