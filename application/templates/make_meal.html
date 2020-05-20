@@ -43,11 +43,11 @@
             </div>
             {% endif %}
             <br>
-            {{ form.recipe.label }}
-            {{ form.recipe }}
-	        {% if form.recipe.errors %}
+            {{ form.description.label }}
+            {{ form.description }}
+	        {% if form.description.errors %}
             <div class="error">
-                {% for error in form.recipe.errors %}
+                {% for error in form.description.errors %}
                     <span>{{ error }}</span>
                 {% endfor %}
             </div>

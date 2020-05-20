@@ -1,0 +1,48 @@
+{% extends 'layout.html' %}
+{% block body_content %}
+
+{% for meal in meals %}
+    <div>
+        <h3>{{ meal.meal_name }}</h3>
+        <p><b> - Health Rating:</b>{{ meal.healthy }}</p>
+		<p><b> - Cooking Time:</b>{{ meal.cook_length }}</p>
+		<p><b> - Difficulty:</b>{{ meal.difficulty }}</p>
+		<p><b> - Is Vegan:</b>{{ meal.vegan }}</p>
+        <p> -- {{ meal.description }}</p>
+    </div>
+{% endfor %}
+
+<div class='form'>
+    <form method='POST' action=''>
+        {{ form.hidden_tag() }}
+        <div class='form_group'>
+            {{ form.ingredient_name.label }}
+            {{ form.ingredient_name }}
+            {% if form.ingredient_name.errors %}
+                <div class='error'>
+                    {% for error in form.ingredient_name.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+        <br>
+        {{ form.shelf_life.label }}
+            {{ form.shelf_life }}
+            {% if form.shelf_life.errors %}
+                <div class='error'>
+                    {% for error in form.shelf_life.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        <br>
+        {{ form.vegan.label }}
+        {{ form.vegan }}
+        <div class='form_group'>
+            {{ form.submit }}
+        </div>
+    </form>
+</div>
+
+{% endblock %}
