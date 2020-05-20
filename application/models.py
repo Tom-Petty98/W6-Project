@@ -15,7 +15,7 @@ class Meals(db.Model):
     description = db.Column(db.String(500), nullable=False, unique=True)
 #   meal_image = db.Column(db.String(100, nullable=True, unique=True))
     vegan = db.Column(db.Boolean, nullable=False)
-    ingredients = db.relationship('Ingredients', secondary=meal_ingredients, backref="ingredients", lazy = True)
+    ingredients = db.relationship('Ingredients', secondary=meal_ingredients, backref="meals", lazy = True)
 
     def __repr__(self):
         return ''.join([
