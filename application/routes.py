@@ -96,3 +96,11 @@ def delete_meal(id):
     db.session.delete(meal)
     db.session.commit()
     return redirect(url_for('recipes'))
+
+@app.route('/add_ingredients/delete_ingredient/<string:ids>', methods=['GET', 'POST'])
+def delete_ingredient(ids):
+    listIds = ids.split(',')
+    ingredient = Ingredients.query.filter_by(id=int(listIds[1])).first()
+    db.session.delete(ingredient)
+    db.session.commit()
+    return redirect(url_for('add_ingredients', id=int(listIds[0])))

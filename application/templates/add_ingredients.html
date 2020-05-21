@@ -3,13 +3,15 @@
 
     <div>
         <h3>{{ meal.meal_name }}</h3>
-        <p><b> - Health Rating:</b>{{ meal.healthy }} <b> - Cooking Time:</b>{{ meal.cook_length }}</p>		
-		<p><b> - Difficulty:</b>{{ meal.difficulty }} <b> - Is Vegan:</b>{{ meal.vegan }}</p>	
+        <p><b> - Health Rating: </b>{{ meal.healthy }} <b> - Cooking Time: </b>{{ meal.cook_length }} mins</p>		
+		<p><b> - Difficulty: </b>{{ meal.difficulty }} <b> - Is Vegan: </b>{{ meal.vegan }} </p>	
         <p> -- {{ meal.description }}</p>
         <!--if meal.ingredients dont know how to check if the meal has connections  -->
         <h4>Ingredients</h4>
         {% for ingredient in meal.ingredients %}
-        <p><h3>{{ ingredient.ingredient_name }}</h3> <b> - Shelf Life:</b>{{ ingredient.shelf_life }} - Vegan friendly:</b>{{ ingredient.Vegan }}</p>	
+        <p><b>{{ ingredient.ingredient_name }}</b> <b> - Shelf Life:</b> {{ ingredient.shelf_life }} <b>- Vegan friendly:</b> {{ ingredient.vegan }}
+            <a href="delete_ingredient/{{meal.id}},{{ingredient.id}}">Delete ingredient</a>
+        </p>        
         {% endfor %}
     </div>
     <br>
