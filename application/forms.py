@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, BooleanField, TextAreaField, SelectField, SelectMultipleField
+from wtforms import StringField, SubmitField, BooleanField, TextAreaField, SelectField
 from wtforms.validators import DataRequired, Length
 from application.models import Ingredients
 
@@ -27,10 +27,7 @@ class MealsForm(FlaskForm):
     difficulty = SelectField("Diffculty", [DataRequired()],
                         choices=[("easy", "easy"), ("medium", "medium"), ("hard", "hard")]
     )
-    ingredients = SelectMultipleField('Add some Ingredients',
-                                   coerce=int,
-                                   choices=[(i.id, i.ingredient_name) for i in Ingredients.query.all()]
-    )
+
     description = TextAreaField('Give a brief description of this meal',
         validators = [
             DataRequired(),
@@ -55,3 +52,10 @@ class IngredientsForm(FlaskForm):
 
     vegan = BooleanField('Suitable For Vegans')
     submit_ingredient = SubmitField('Add ingredient!')
+
+class AddIngredientsForm(FlaskForm):
+    ingredient = SelectField('Add some Ingredients',
+                                   coerce=int,
+                                   choices=[(i.id, i.ingredient_name) for i in Ingredients.query.all()]
+    )
+    add_ingredient = SubmitField('Add ingredient!')
