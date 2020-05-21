@@ -4,11 +4,15 @@
 {% for meal in meals %}
     <div>
         <h3>{{ meal.meal_name }}</h3>
-        <p><b> - Health Rating:</b>{{ meal.healthy }}</p>
-		<p><b> - Cooking Time:</b>{{ meal.cook_length }}</p>
-		<p><b> - Difficulty:</b>{{ meal.difficulty }}</p>
-		<p><b> - Is Vegan:</b>{{ meal.vegan }}</p>
+        <p><b> - Health Rating:</b>{{ meal.healthy }} <b> - Cooking Time:</b>{{ meal.cook_length }}</p>		
+		<p><b> - Difficulty:</b>{{ meal.difficulty }} <b> - Is Vegan:</b>{{ meal.vegan }}</p>	
         <p> -- {{ meal.description }}</p>
+        <h4>Ingredients</h4>
+        {% for ingredient in meal.ingredients %}
+        <p><h3>{{ ingredient.ingredient_name }}</h3> <b> - Shelf Life:</b>{{ ingredient.shelf_life }} - Vegan friendly:</b>{{ ingredient.Vegan }}</p>	
+        {% endfor %}
+        <a href="add_ingredients/{{meal.id}}">Edit ingredients</a>
+        <a href="edit_meal/{{meal.id}}">Edit meal</a>
     </div>
 {% endfor %}
 

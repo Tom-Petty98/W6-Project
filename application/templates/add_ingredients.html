@@ -1,48 +1,72 @@
 {% extends 'layout.html' %}
 {% block body_content %}
 
-{% for meal in meals %}
     <div>
         <h3>{{ meal.meal_name }}</h3>
-        <p><b> - Health Rating:</b>{{ meal.healthy }}</p>
-		<p><b> - Cooking Time:</b>{{ meal.cook_length }}</p>
-		<p><b> - Difficulty:</b>{{ meal.difficulty }}</p>
-		<p><b> - Is Vegan:</b>{{ meal.vegan }}</p>
+        <p><b> - Health Rating:</b>{{ meal.healthy }} <b> - Cooking Time:</b>{{ meal.cook_length }}</p>		
+		<p><b> - Difficulty:</b>{{ meal.difficulty }} <b> - Is Vegan:</b>{{ meal.vegan }}</p>	
         <p> -- {{ meal.description }}</p>
+        <!--if meal.ingredients dont know how to check if the meal has connections  -->
+        <h4>Ingredients</h4>
+        {% for ingredient in meal.ingredients %}
+        <p><h3>{{ ingredient.ingredient_name }}</h3> <b> - Shelf Life:</b>{{ ingredient.shelf_life }} - Vegan friendly:</b>{{ ingredient.Vegan }}</p>	
+        {% endfor %}
     </div>
-{% endfor %}
-
-<div class='form'>
-    <form method='POST' action=''>
-        {{ form.hidden_tag() }}
-        <div class='form_group'>
-            {{ form.ingredient_name.label }}
-            {{ form.ingredient_name }}
-            {% if form.ingredient_name.errors %}
-                <div class='error'>
-                    {% for error in form.ingredient_name.errors %}
+    <br>
+    <div class='form'>
+        <form action="POST" action=''>
+            {{ add_ingredient_form.hidden_tag() }}
+            <div class='form_group'>
+                <h4>{{ add_ingredient_form.ingredient.label }}</h4>
+                {{ add_ingredient_form.ingredient }}
+                {% if add_ingredient_form.ingredient.errors %}
+                <div class="error">
+                    {% for error in add_ingredient_form.ingredient.errors %}
                         <span>{{ error }}</span>
                     {% endfor %}
                 </div>
-            {% endif %}
-        </div>
-        <br>
-        {{ form.shelf_life.label }}
-            {{ form.shelf_life }}
-            {% if form.shelf_life.errors %}
-                <div class='error'>
-                    {% for error in form.shelf_life.errors %}
-                        <span>{{ error }}</span>
-                    {% endfor %}
-                </div>
-            {% endif %}
-        <br>
-        {{ form.vegan.label }}
-        {{ form.vegan }}
-        <div class='form_group'>
-            {{ form.submit }}
-        </div>
-    </form>
-</div>
+                {% endif %}
+            </div>
+            <br>
+            <div class='form_group'>
+                {{ add_ingredient_form.add_ingredient }}
+            </div>
+        </form>
+    </div>
+    <br>
+    <div class='form'>
+        <form method='POST' action=''>
+            {{ ingredient_form.hidden_tag() }}
+            <h4>Add your own ingredient</h4>
+            <div class='form_group'>
+                {{ ingredient_form.ingredient_name.label }}
+                {{ ingredient_form.ingredient_name }}
+                {% if ingredient_form.ingredient_name.errors %}
+                    <div class='error'>
+                        {% for error in ingredient_form.ingredient_name.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+            <br>
+            {{ ingredient_form.shelf_life.label }}
+                {{ ingredient_form.shelf_life }}
+                {% if ingredient_form.shelf_life.errors %}
+                    <div class='error'>
+                        {% for error in ingredient_form.shelf_life.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            <br><br>
+            {{ ingredient_form.vegan.label }}
+            {{ ingredient_form.vegan }}
+            <br><br>
+            <div class='form_group'>
+                {{ ingredient_form.submit_ingredient }}
+            </div>
+        </form>
+    </div>
 
 {% endblock %}
