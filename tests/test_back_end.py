@@ -28,17 +28,25 @@ class TestBase(TestCase):
         db.session.commit()
         db.drop_all()
         db.create_all()
+        db.session.commit()
+
+        meal = Meals(meal_name='Test meal', healthy=3, cook_length=50, difficulty='Easy',vegan=True, description='Meal description')
+        ingredient = Ingredients(ingredient_name='Spagetti', shelf_life='long', vegan=True)
+
+        db.session.add(meal)
+        db.session.add(ingredient)
+        db.session.commit()
 
     def premade_meal(self):
         return self.client.post(
             '/make_meal',
             data=dict(
-                meal_name = 'Test meal',
+                meal_name = 'Created meal',
                 healthy = 3,
                 cook_length = 50,
                 difficulty = 'Easy',
                 vegan = True,
-                description = 'Meal description'
+                description = 'Created meal description'
                 ),
             follow_redirects=True
         )
@@ -87,7 +95,7 @@ class TestPosts(TestBase):
         with self.client:
             response = self.premade_meal()
             self.assertEqual(response.status_code, 200)
-            self.assertIn(b'Test meal', response.data)
+            self.assertIn(b'Created meal', response.data)
 
     def test_edit_meal(self):
         self.premade_meal()
@@ -105,13 +113,13 @@ class TestPosts(TestBase):
         response = self.client.post(
             'add_ingredients/1',
             data=dict(
-                ingredient_name='Pasta',
+                ingredient_name='Rice',
                 shelf_life='long',
                 vegan=True
             ),
             follow_redirects=True
         )
-        self.assertIn(b'Pasta', response.data)
+        self.assertIn(b'Rice', response.data)
 
     def test_delete_meal(self):
         self.premade_meal()
@@ -120,7 +128,7 @@ class TestPosts(TestBase):
             '/delete_meal/1',
             follow_redirects=True
         )
-        assert original != Meal.query.count()
+        assert original != Meals.query.count()
            # self.assertEqual(response.status_code, 200)
         
 
@@ -153,5 +161,9 @@ class TestPosts(TestBase):
 class TestModels(TestBase):
 
     def test_meal_repr_model(self):
-        meal = Meals(meal_name='Test meal', healthy=3, cook_length=50, difficulty='Easy', description='Meal description')
-        assert repr(meal) == 'Meal: Test meal 1'
+        meal = Meals.query.all()
+        assert repr(meal) == '[Meal: Test meal Id: 1]'
+
+    def test_ingredient_repr_model(self):
+        ingredient = Ingredients.query.all()
+        assert repr(ingredient) == '[Ingredient: Spagetti Id: 1]'
