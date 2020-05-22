@@ -79,7 +79,8 @@ def edit_meal(id):
         meal.difficulty = meal_form.difficulty.data
         meal.vegan = meal_form.vegan.data
         meal.description = meal_form.description.data
-        return redirect(url_for('edit_meal'))
+        db.session.commit()
+        return redirect(url_for('edit_meal', id=id))
     elif request.method == 'GET':
         meal_form.meal_name.data = meal.meal_name
         meal_form.healthy.data = meal.healthy

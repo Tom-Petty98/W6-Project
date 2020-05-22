@@ -4,7 +4,7 @@
 {% for meal in meals %}
     <div>
         <h3>{{ meal.meal_name }}</h3>
-        <p><b> - Health Rating:</b> {{ meal.healthy }} <b> - Cooking Time:</b> {{ meal.cook_length }} mins</p>		
+        <p><b> - Health Rating:</b> {{ meal.healthy }}/5 <b> - Cooking Time:</b> {{ meal.cook_length }} mins</p>		
 		<p><b> - Difficulty:</b> {{ meal.difficulty }} <b> - Is Vegan:</b> {{ meal.vegan }}</p>	
         <p> -- {{ meal.description }}</p>
         <h4>Ingredients</h4>
