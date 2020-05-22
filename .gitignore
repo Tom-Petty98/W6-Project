@@ -3,3 +3,4 @@
 *.pyc
 /project1-venv/
 /.vscode/
+/.pytest_cache/
