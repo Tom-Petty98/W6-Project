@@ -53,9 +53,9 @@ class IngredientsForm(FlaskForm):
     vegan = BooleanField('Suitable For Vegans')
     submit_ingredient = SubmitField('Add ingredient!')
 
-class AddIngredientsForm(FlaskForm):
+class AddIngredientsForm(FlaskForm):    
     ingredient = SelectField('Add some Ingredients',
-                                   coerce=int,
-                                   choices=[(i.id, i.ingredient_name) for i in Ingredients.query.all()]
-    )
+                                coerce=int,
+                                choices=[(i.id, i.ingredient_name) for i in Ingredients.query.all()]
+        )
     add_ingredient = SubmitField('Add ingredient!')

@@ -19,7 +19,7 @@ class Meals(db.Model):
 
     def __repr__(self):
         return ''.join([
-            'Meal: ', self.meal_name, ' ', self.id,
+            'Meal: ', self.meal_name, ' ', 'Id: ', str(self.id)
             ])
 
 
@@ -31,6 +31,6 @@ class Ingredients(db.Model):
 
     def __repr__(self):
         return ''.join([
-            'Ingredient: ', self.ingredient_name, ' ', self.id,
+            'Ingredient: ', self.ingredient_name, ' ', 'Id: ', str(self.id)
             ])
 
