@@ -2,6 +2,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, BooleanField, TextAreaField, SelectField
 from wtforms.validators import DataRequired, Length
 from application.models import Ingredients
+# from application import db
 
 class MealsForm(FlaskForm):
     meal_name = StringField('Meal Name',
@@ -53,9 +54,10 @@ class IngredientsForm(FlaskForm):
     vegan = BooleanField('Suitable For Vegans')
     submit_ingredient = SubmitField('Add ingredient!')
 
-class AddIngredientsForm(FlaskForm):    
-    ingredient = SelectField('Add some Ingredients',
-                                coerce=int,
-                                choices=[(i.id, i.ingredient_name) for i in Ingredients.query.all()]
-        )
+class AddIngredientsForm(FlaskForm):
+#    if db.session.query(Ingredients).count() > 0:  also tried   Ingredients.query.count() > 0 and for testing  Ingredients.query.count() == random numbers and it still gained entry on boot up of testing
+    ingredient = SelectField('Add some Ingredients',         
+                        coerce=int,                                          # tried putting an if statement within and before choices block.
+                        choices=[(i.id, i.ingredient_name) for i in Ingredients.query.all()]
+            )
     add_ingredient = SubmitField('Add ingredient!')

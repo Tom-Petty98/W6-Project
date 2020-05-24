@@ -47,9 +47,10 @@ def add_ingredients(id):
 
     add_ingredient_form = AddIngredientsForm()
     if add_ingredient_form.add_ingredient.data and add_ingredient_form.validate():
-        ingredient = Ingredients.query.filter_by(id = add_ingredient_form.ingredient.data).first()
-        meal.ingredients.append(ingredient)
+        ingredientData = Ingredients.query.filter_by(id = add_ingredient_form.ingredient.data).first()
+        meal.ingredients.append(ingredientData)
         db.session.commit()
+        return redirect(url_for('add_ingredients', id=id))
 
     ingredient_form = IngredientsForm()
     if ingredient_form.submit_ingredient.data and ingredient_form.validate():
@@ -62,6 +63,7 @@ def add_ingredients(id):
         db.session.add(ingredientData) 
         meal.ingredients.append(ingredientData)  
         db.session.commit()
+        return redirect(url_for('add_ingredients', id=id))
 
     return render_template('add_ingredients.html', title='Add Ingredients to your meal', ingredient_form=ingredient_form, add_ingredient_form=add_ingredient_form, meal=meal)
 
