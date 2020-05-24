@@ -14,25 +14,29 @@
 ### Introduction
 The purpose of this project was to create a 'CRUD' application whilst utilising the tools, methodologies and technologies that were taught in the modules so far in this DevOps course.
 
-### Project Scope
-The scope of the project outlines the minimum requirements to successfully complete the project and assesses our development against SFIA. The minimum requirements for the project are outlined as follows:
+### Breif
+Create functional website following best practices with full crud functionality featuring a relational database and utilise a version control system (git). The project must have clear documentation and follow agile principles. This includes a project tracking board identifing user stories, tasks and progression. 
 
-1. Project Tracking via a kanban style board such as trello that identifies the user story, use cases and progression of the project over a period of time.
-1. A relational database containing a minumum of two tables with some sort of relationship to store data generated in the application.
-1. Documentation showing the structure of the project and as well as a risk assessment.
-1. A functional CRUD application developed in python following best practices.
-1. Fully comprehensive test suite with high test coverage of the back end with reports and evidence of testing results. Also needs to include automated validation testing for the application.
-1. A functioning front-end website that has full CRUD functionality.
-1. Use of github as the version control system using the feauture-branch model to fully integrate the code for the application.
+### Soloution
+I decided to create a website that allows uses to share there favourite vegatarian meals. This featured a relational database between meals and ingredients. Within the meals database are multiple columns that are great for sorting meals and if I were to develop this further I would add a search bar that sorted the meals displayed based them on various queries.
 
-### Technology constraints
-The technology required to build the application were discussed during the training for this project and following technologies were to be utilized to complete the project:
+### Trello board
 
-* Kanban style board(Trello board)
-* GCP SQL database
-* Programming language: Python
-* Unit testing: Pytest
-* Front-end: Flask(HTML)
-* Version control: Git
-* CI server: Jenkins
-* Cloud server: GCP
+### Arcitecture
+
+### Risk Assessment
+
+### Front end design
+
+### Bugs 
+A bug in creating an empty testing database due to a query I have in one of my forms. The query uses the ingredients database to display the ingredients allowing the user to select ingredients to add to a meal. The bug occurs during testing intialization when the database is empty the query throws an error and prevents testing many of the features to do with the ingredients database.   
+
+### Testing
+Test coverage for the backend is at 81% capped at this percentage due to the bug. 
+
+### Deployment
+
+### Improvements for the future
+
+### Authors
+#### By Tom Petty
