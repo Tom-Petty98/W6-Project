@@ -1,0 +1,8 @@
+[Unit]
+Description=SFIA-1-project
+[Service]
+User=jenkins
+ExecStart=/var/lib/jenkins/workspace/Veggie_meals/Script/installation.sh
+
+[Install]
+WantedBy=multi-user.target
