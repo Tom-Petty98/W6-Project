@@ -1,6 +1,6 @@
 import unittest
 
-from flask import url_for
+from flask import render_template, redirect, url_for, request
 from flask_testing import TestCase
 
 from application import app, db
@@ -39,7 +39,7 @@ class TestBase(TestCase):
 
     def premade_meal(self):
         return self.client.post(
-            '/make_meal',
+            url_for('make_meal'),
             data=dict(
                 meal_name = 'Created meal',
                 healthy = 3,
@@ -78,11 +78,8 @@ class TestViews(TestBase):
         response = self.client.get(url_for('home'))
         self.assertEqual(response.status_code, 200)
 
-    def test_recipes_view(self):
-        """
-        Test that homepage is accessible without login
-        """
-        response = self.client.get(url_for('recipes'))
+    def test_home_view(self):
+        response = self.client.get(url_for('/'))
         self.assertEqual(response.status_code, 200)
 
 
@@ -96,6 +93,26 @@ class TestPosts(TestBase):
             response = self.premade_meal()
             self.assertEqual(response.status_code, 200)
             self.assertIn(b'Created meal', response.data)
+        with self.client:
+            response = self.client.get(url_for('recipes'))
+            self.assertEqual(response.status_code, 200)
+        with self.client:
+            response = self.client.get(url_for('edit_meal', id = 1))
+            self.assertEqual(response.status_code, 200)
+
+
+    def test_edit_meal(self):                           # This method doesnt work due to the database error
+        start = Meals.query.filter_by(id=1).first().description
+        response = self.client.post(
+            url_for('edit_meal', id=1),
+            data=dict(
+                description='Edited meal',                 
+                difficulty='Hard'
+                ),
+            follow_redirects=True
+            )
+        end = Meals.query.filter_by(id=1).first().description
+        self.assertTrue(end != start)
 
     def test_edit_meal(self):
         self.premade_meal()

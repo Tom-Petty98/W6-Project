@@ -16,18 +16,11 @@
     </div>
     <br>
     <div class='form'>
-        <form action="POST" action=''>
+        <form method='POST' action=''>
             {{ add_ingredient_form.hidden_tag() }}
             <div class='form_group'>
                 <h4>{{ add_ingredient_form.ingredient.label }}</h4>
                 {{ add_ingredient_form.ingredient }}
-                {% if add_ingredient_form.ingredient.errors %}
-                <div class="error">
-                    {% for error in add_ingredient_form.ingredient.errors %}
-                        <span>{{ error }}</span>
-                    {% endfor %}
-                </div>
-                {% endif %}
             </div>
             <br>
             <div class='form_group'>
