@@ -48,6 +48,7 @@ Duplicate entries for both the meals and ingredients remains unhandeled
 Test coverage for the backend is at 81% and appears to be capped at this percentage due to the bug. 
 
 ### Deployment
+
 ![](images/CI_CD_pipeline.jpg)
 Integration testing with selenium was removed from the MVP and due to the database error still being present I ended up not implementing it for this project.
 
