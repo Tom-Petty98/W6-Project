@@ -28,7 +28,7 @@ Each card reperesents a user story and is assigned a story points value. Each ca
 ### Arcitecture
 ![](images/ERD-Planning.jpg)
 
-At the start of the project the intial idea was to be able to create proper recipes using a database of ingredients however and so I designed the ERD on the left. Midway through the project after doing some research I realized the proper way to implement the ingredients in a way that could be used in a recipe (shown on the left) would be hard to implement and wouldn't even lead to a project that anyone would want to use. So I changed the purpose from creating recipes to sharing meals. This was not only easier but down the line using filters and I could see it being useful.
+At the start of the project the intial idea was to be able to create proper recipes using a database of ingredients and so I designed the ERD on the left. Midway through the project after doing some research I realized the proper way to implement the ingredients in a way that could be used in a recipe (shown on the left) would be hard to implement and wouldn't even lead to a project that anyone would want to use. So I changed the purpose from creating recipes to sharing meals. This was not only easier but down the line using filters I could see it being useful.
 
 ![](images/ERD-Final.jpg)
 
