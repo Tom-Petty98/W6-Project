@@ -4,12 +4,15 @@
 
 ### Table of contents
 1. Introduction
-1. Project Scope
-1. Technology constraints
-1. Entity Relationship Diagrams
+1. Breif
+1. Soloution
+1. Trello board
+1. Arcitecture
 1. Risk Assessment
-1. Deployment
+1. Bugs
 1. Testing
+1. Deployment
+1. Improvements for the future
 
 ### Introduction
 The purpose of this project was to create a 'CRUD' application whilst utilising the tools, methodologies and technologies that were taught in the modules so far in this DevOps course.
