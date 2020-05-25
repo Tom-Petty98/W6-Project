@@ -21,11 +21,18 @@ Create functional website following best practices with full crud functionality 
 I decided to create a website that allows uses to share there favourite vegatarian meals. This featured a relational database between meals and ingredients. Within the meals database are multiple columns that are great for sorting meals and if I were to develop this further I would add a search bar that sorted the meals displayed based them on various queries.
 
 ### Trello board
+![](images/Trello.jpg)
+
+Each card reperesents a user story and is assigned a story points value. Each card is then split into tasks using a checklist.
 
 ### Arcitecture
-![](images/Veggie_meals_ERD-Simplified.png)
+![](images/ERD-Planning.jpg)
 
-The ingredients meal_ingredients and meals tables where all implemented but due to time constraints the spices table was never impemented.
+At the start of the project the intial idea was to be able to create proper recipes using a database of ingredients however and so I designed the ERD on the left. Midway through the project after doing some research I realized the proper way to implement the ingredients in a way that could be used in a recipe (shown on the left) would be hard to implement and wouldn't even lead to a project that anyone would want to use. So I changed the purpose from creating recipes to sharing meals. This was not only easier but down the line using filters and I could see it being useful.
+
+![](images/ERD-Final.jpg)
+
+This shares similarities with the original ERD but is simplfied further
 
 ### Risk Assessment
 ![](images/RiskAssessment.jpg)
@@ -36,7 +43,9 @@ A bug in creating an empty testing database due to a query I have in one of my f
 Duplicate entries for both the meals and ingredients remains unhandeled
 
 ### Testing
-Test coverage for the backend is at 81% (21 lines missed in routes) capped at this percentage due to the bug. 
+![](images/Coverage.jpg)
+
+Test coverage for the backend is at 81% and appears to be capped at this percentage due to the bug. 
 
 ### Deployment
 ![](images/CI_CD_pipeline.jpg)
