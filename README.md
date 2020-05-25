@@ -23,18 +23,24 @@ I decided to create a website that allows uses to share there favourite vegatari
 ### Trello board
 
 ### Arcitecture
+![](images/Veggie_meals_ERD-Simplified.png)
+
+The ingredients meal_ingredients and meals tables where all implemented but due to time constraints the spices table was never impemented.
 
 ### Risk Assessment
-
-### Front end design
+![](images/RiskAssessment.jpg)
 
 ### Bugs 
 A bug in creating an empty testing database due to a query I have in one of my forms. The query uses the ingredients database to display the ingredients allowing the user to select ingredients to add to a meal. The bug occurs during testing intialization when the database is empty the query throws an error and prevents testing many of the features to do with the ingredients database. Multiple fixes have been trialed such as blocking entry to the query using an if statement but a convinent fix has yet to be found. 
+
+Duplicate entries for both the meals and ingredients remains unhandeled
 
 ### Testing
 Test coverage for the backend is at 81% (21 lines missed in routes) capped at this percentage due to the bug. 
 
 ### Deployment
+![](images/CI_CD_pipeline.jpg)
+Integration testing with selenium was removed from the MVP and due to the database error still being present I ended up not implementing it for this project.
 
 ### Improvements for the future
 
