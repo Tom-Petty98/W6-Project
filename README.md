@@ -43,6 +43,11 @@ Test coverage for the backend is at 81% (21 lines missed in routes) capped at th
 Integration testing with selenium was removed from the MVP and due to the database error still being present I ended up not implementing it for this project.
 
 ### Improvements for the future
+In the future I would like to:
+1. Fix the database error and implement intergration testing.
+1. Implement a simple filter to make finding meals based on preference even easier. 
+1. Implement a Users database allowing me to control access to various features. The users may also allow me to implement an upvote system allowing top rated meals to be displayed at the top or on the home page. 
+1. I would also consider adding a spices database for greater customization of meals. 
 
 ### Authors
 #### By Tom Petty
