@@ -52,7 +52,9 @@ Test coverage for the backend is at 81% and appears to be capped at this percent
 Integration testing with selenium was removed from the MVP and due to the database error still being present I ended up not implementing it for this project.
 
 ### Improvements for the future
-In the future I would like to:
+During this project I had a tendency to work in phases. For the planning phase this was fine. But during development I foucused soley on developing the app and its functionality and then moved onto testing and then onto jenkins. This workflow was mainly because I was learning how to do each step as I went along so it made sense to focus on things one tool at a time. However this goes against the devops TDD and continous intergration approach. So in future projects I would aim to build, test and deploy throughout. 
+
+If I were to develop this app further I would like to:
 1. Fix the database error and implement intergration testing.
 1. Implement a simple filter to make finding meals based on preference even easier. 
 1. Implement a Users database allowing me to control access to various features. The users may also allow me to implement an upvote system allowing top rated meals to be displayed at the top or on the home page. 
