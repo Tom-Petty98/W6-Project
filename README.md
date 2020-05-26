@@ -21,7 +21,7 @@ The purpose of this project was to create a 'CRUD' application whilst utilising 
 Create functional website following best practices with full crud functionality featuring a relational database and utilising a version control system (git). The project must have clear documentation and follow agile principles. This includes a project tracking board identifing user stories, tasks and progression. 
 
 ### Soloution
-I decided to create a website that allows uses to share there favourite vegatarian meals. This features a relational database between meals and ingredients. The idea of the website is to easily find, create and share your favoutite vegatarian meals. The database allows the potential for sorting meals based on various queries.
+I decided to create a website that allows users to share there favourite vegatarian meals. This features a relational database between meals and ingredients. The idea of the website is to easily find, create and share your favoutite vegatarian meals. The database allows the potential for sorting meals based on various queries.
 
 ### Trello board
 ![](images/Trello.jpg)
