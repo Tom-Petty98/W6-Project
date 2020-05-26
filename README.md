@@ -48,7 +48,7 @@ Duplicate entries for both the meals and ingredients remains unhandeled
 ### Testing
 ![](images/Coverage.jpg)
 
-Test coverage for the backend is at 81% and appears to be capped at this percentage due to the bug. 
+Test coverage for the backend is at 81% and appears to be capped at this percentage due to the bug. The lines misssed are for capturing data entered into form feilds and despite trying multiple methods to test these lines ultimately the coverage didnt rise.
 
 ### Deployment
 
