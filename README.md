@@ -4,12 +4,15 @@
 
 ### Table of contents
 1. Introduction
-1. Project Scope
-1. Technology constraints
-1. Entity Relationship Diagrams
+1. Breif
+1. Soloution
+1. Trello board
+1. Arcitecture
 1. Risk Assessment
-1. Deployment
+1. Bugs
 1. Testing
+1. Deployment
+1. Improvements for the future
 
 ### Introduction
 The purpose of this project was to create a 'CRUD' application whilst utilising the tools, methodologies and technologies that were taught in the modules so far in this DevOps course.
@@ -18,7 +21,7 @@ The purpose of this project was to create a 'CRUD' application whilst utilising 
 Create functional website following best practices with full crud functionality featuring a relational database and utilising a version control system (git). The project must have clear documentation and follow agile principles. This includes a project tracking board identifing user stories, tasks and progression. 
 
 ### Soloution
-I decided to create a website that allows uses to share there favourite vegatarian meals. This featured a relational database between meals and ingredients. Within the meals database are multiple columns that are great for sorting meals and if I were to develop this further I would add a search bar that sorted the meals displayed based them on various queries.
+I decided to create a website that allows users to share there favourite vegatarian meals. This features a relational database between meals and ingredients. The idea of the website is to easily find, create and share your favoutite vegatarian meals. The database allows the potential for sorting meals based on various queries.
 
 ### Trello board
 ![](images/Trello.jpg)
@@ -28,7 +31,7 @@ Each card reperesents a user story and is assigned a story points value. Each ca
 ### Arcitecture
 ![](images/ERD-Planning.jpg)
 
-At the start of the project the intial idea was to be able to create proper recipes using a database of ingredients and so I designed the ERD on the left. Midway through the project after doing some research I realized the proper way to implement the ingredients in a way that could be used in a recipe (shown on the left) would be hard to implement and wouldn't even lead to a project that anyone would want to use. So I changed the purpose from creating recipes to sharing meals. This was not only easier but down the line using filters I could see it being useful.
+At the start of the project the intial idea was to be able to create proper recipes using a database of ingredients and so I designed the ERD on the left. Midway through the project after doing some research I realized the proper way to implement the ingredients in a way that could be used in a recipe (shown on the right) would be hard to implement and wouldn't even lead to a project that anyone would want to use. So I changed the purpose from creating recipes to sharing meals. This was not only easier but down the line using filters I could see it being useful.
 
 ![](images/ERD-Final.jpg)
 
@@ -45,7 +48,7 @@ Duplicate entries for both the meals and ingredients remains unhandeled
 ### Testing
 ![](images/Coverage.jpg)
 
-Test coverage for the backend is at 81% and appears to be capped at this percentage due to the bug. 
+Test coverage for the backend is at 81% and appears to be capped at this percentage due to the bug. The lines misssed are for capturing data entered into form feilds and despite trying multiple methods to test these lines ultimately the coverage didnt rise.
 
 ### Deployment
 
