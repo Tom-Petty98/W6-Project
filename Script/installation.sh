@@ -22,4 +22,4 @@ pip3 install -r requirements.txt
  
 pytest --cov ./application
  
-gunicorn --workers=4 application:app
+gunicorn --workers=4 --bind=0.0.0.0:5000 application:app
