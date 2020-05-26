@@ -7,6 +7,8 @@ sudo apt install python3 -y
 sudo apt install python3-pip -y
  
 sudo apt install python3-venv -y
+
+echo "Testing github webhook"
  
 python3 -m venv project1-venv
  
@@ -20,4 +22,4 @@ pip3 install -r requirements.txt
  
 pytest --cov ./application
  
-gunicorn --workers=4 application:app
+gunicorn --workers=4 --bind=0.0.0.0:5000 application:app
