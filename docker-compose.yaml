@@ -1,0 +1,30 @@
+version: '3.7'
+services:
+  app:
+    image: app
+    build: .
+    ports:
+    - target: 5000
+      published: 5000
+      protocol: tcp
+    environment:
+      DATABASE_URI: ${W6_PROJECT_DB_URI}
+      SECRET_KEY: ${SECRET_KEY}
+    depends_on:
+    - database
+  database:
+    image: database
+    build: .
+    ports:
+    - target: 3306
+      published: 3306
+      protocol: tcp
+    volumes:
+    - type: volume
+      source: mysqlvolume
+      target: /var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+volumes:
+  mysqlvolume:
