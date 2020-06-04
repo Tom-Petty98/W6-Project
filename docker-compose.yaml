@@ -8,13 +8,14 @@ services:
       published: 5000
       protocol: tcp
     environment:
-      DATABASE_URI: ${W6_PROJECT_DB_URI}
+      W6_PROJECT_DB_URI: ${W6_PROJECT_DB_URI}
       SECRET_KEY: ${SECRET_KEY}
     depends_on:
     - database
+    deploy:
+      replicas: 3
   database:
-    image: database
-    build: .
+    image: mysql:5.7
     ports:
     - target: 3306
       published: 3306
